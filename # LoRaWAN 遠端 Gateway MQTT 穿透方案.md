@@ -24,7 +24,7 @@
 1. 進入 **Cloudflare Zero Trust Dashboard** -> **Networks** -> **Tunnels**。
 2. 選擇母機運行的 Tunnel -> **Configure** -> **Public Hostname**。
 3. 新增一條 Hostname：
-* **Subdomain:** `mqtt-tcp` (完整域名範例: `mqtt-tcp.carrierhkai.com`)
+* **Subdomain:** `mqtt-tcp` (完整域名範例: `mqtt-tcp.yourdomain.com`)
 * **Path:** (留空)
 * **Service Type:** `tcp`
 * **URL:** `192.168.168.103:1883`
@@ -41,7 +41,7 @@
 1. 進入 **Access** -> **Applications**。
 2. **Add an application** -> **Self-hosted**。
 3. **Application Name:** `MQTT TCP Bypass`
-4. **Application Domain:** `mqtt-tcp.carrierhkai.com` (必須與 2.1 設定一致)。
+4. **Application Domain:** `mqtt-tcp.yourdomain.com` (必須與 2.1 設定一致)。
 5. **Policy 設定:**
 * **Policy Name:** `Allow All`
 * **Action:** `Bypass` (繞過驗證)
@@ -83,7 +83,7 @@ sudo docker run -d \
   --restart always \
   --net=host \
   cloudflare/cloudflared:latest \
-  access tcp --hostname mqtt-tcp.carrierhkai.com --url 0.0.0.0:1883
+  access tcp --hostname mqtt-tcp.yourdomain.com --url 0.0.0.0:1883
 
 ```
 
